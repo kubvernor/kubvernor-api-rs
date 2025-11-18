@@ -6,17 +6,21 @@
 mod prelude {
     pub use kube::CustomResource;
     pub use schemars::JsonSchema;
-    pub use serde::{Serialize, Deserialize};
+    pub use serde::{Deserialize, Serialize};
 }
 use self::prelude::*;
 
 #[derive(CustomResource, Serialize, Deserialize, Clone, Debug, JsonSchema, Default, PartialEq)]
-#[kube(group = "kubvernor.gateway.api", version = "v1", kind = "KubvernorConfig", plural = "kubvernorconfigs")]
+#[kube(
+    group = "kubvernor.gateway.api",
+    version = "v1",
+    kind = "KubvernorConfig",
+    plural = "kubvernorconfigs"
+)]
 #[kube(namespaced)]
-#[kube(derive="Default")]
-#[kube(derive="PartialEq")]
+#[kube(derive = "Default")]
+#[kube(derive = "PartialEq")]
 pub struct KubvernorConfigSpec {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub backendtype: Option<String>,
 }
-
