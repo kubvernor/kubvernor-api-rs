@@ -10,28 +10,11 @@ repository.workspace = true
 
 
 [dependencies]
-delegate.workspace = true
-k8s-openapi = { workspace = true, features = ["v1_32", "schemars"] }
-
+k8s-openapi = { workspace = true, features = ["v1_33", "schemars"] }
 kube = { workspace = true, features = ["derive"] }
-once_cell.workspace = true
-regex.workspace = true
 schemars.workspace = true
 serde_json.workspace = true
 serde.workspace = true
-serde_yaml.workspace = true
-
-[dev-dependencies]
-k8s-openapi = { workspace = true, features = ["v1_32", "schemars"] }
-kube = { workspace = true, features = ["derive"] }
-
-anyhow.workspace = true
-hyper-util.workspace = true
-tokio.workspace = true
-tower.workspace = true
-uuid.workspace = true
-
-
 
 [package.metadata.docs.rs]
-features = ["k8s-openapi/v1_32"]
+features = ["k8s-openapi/v1_33"]
